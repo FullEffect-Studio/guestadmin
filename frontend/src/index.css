@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.drawer{
+    border: none !important;
+    overflow-x: hidden !important;
+}
+
+
+.dashboard_card{
+    box-shadow: 10px 10px 32px 0px rgba(181,173,173,0.75);
+-webkit-box-shadow: 10px 10px 32px 0px rgba(181,173,173,0.75);
+-moz-box-shadow: 10px 10px 32px 0px rgba(181,173,173,0.75);
+}
+
+@media screen and (min-width:200px) and (max-width:1023px) {
+    .drawer{
+        /* display: none; */
+    }
+}
