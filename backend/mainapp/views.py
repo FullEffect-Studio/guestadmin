@@ -143,6 +143,12 @@ class BookingMainListCreateAPIView(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = BookingSerializer
 
+class BookingUpdateAPIView(generics.UpdateAPIView):
+    serializer_class = BookingSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = Booking.objects.all()
+    lookup_field = "pk"
+
     def get_queryset(self):
         today = timezone.now().date()
         return Booking.objects.filter(dated=today)
@@ -370,4 +376,11 @@ class ClientInDebtAPIView(generics.ListAPIView):
     def get_queryset(self):
         queryset = Payment.objects.filter(account_by = self.request.user, payment_status='Part-Payment')
         return queryset
-     
+
+
+class UpcomingGuestAPIView(generics.ListAPIView):
+    serializer_class = BookingListSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return Booking.objects.filter(booked_by=self.request.user, booking_status = "Confirmed")
