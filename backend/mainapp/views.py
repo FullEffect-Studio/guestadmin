@@ -383,4 +383,4 @@ class UpcomingGuestAPIView(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return Booking.objects.filter(booked_by=self.request.user, booking_status = "Confirmed")
+        return Booking.objects.filter(booked_by=self.request.user, booking_status = "Confirmed", date_checked_in__gt = timezone.now().date())
