@@ -546,7 +546,7 @@ export default function Main() {
                   sx={{ pl: 4, ...getItemStyle("paymentReport", true) }}
                   onClick={() => { navigate("/cms/reports/paymentsReport");isSmallScreen&&setOpen(false) }}
                 >
-                  <ListItemText primary="Add Room" sx={{opacity: open ? 1 : 0}} />
+                  <ListItemText primary="Payment Report" sx={{opacity: open ? 1 : 0}} />
                 </ListItemButton>
               </List>
             </Collapse>
